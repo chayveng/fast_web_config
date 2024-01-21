@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  service-app:
+    build: .
+    volumes:
+      - ./:/app
+      - ./requirements.txt:/app
+    ports:
+      - "8008:8000"
+    command: bash -c "uvicorn main:app --host 0.0.0.0 --port 8000 --reload"
+
